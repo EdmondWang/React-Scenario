@@ -1,4 +1,5 @@
 import React, { useRef, useState } from "react";
+import {isPrimeNumber } from './utils/prime-number';
 
 const App = () => {
   const [startVal, setStartVal] = useState(0);
@@ -44,9 +45,9 @@ const App = () => {
       </div>
       <span
         style={{
-          color: count % 2 === 0 ? "green" : "red",
+          color: isPrimeNumber(count) ? "green" : "red",
           transition: "font-size ease 0.2s",
-          fontSize: count % 2 === 0 ? "16px" : "24px",
+          fontSize: isPrimeNumber(count) ? "16px" : "24px",
         }}
       >
         Count: {count}
