@@ -35,7 +35,7 @@ const App = () => {
     <div className="App">
       <div className="Bar">
         <input type="number" value={startVal} onChange={startValChanged} />
-        <button id="start" onClick={start}>
+        <button id="start" data-testid="start" onClick={start}>
           start
         </button>
         <button id="stop" onClick={stop}>
@@ -49,7 +49,7 @@ const App = () => {
           fontSize: count % 2 === 0 ? "16px" : "24px",
         }}
       >
-        {count}
+        Count: {count}
       </span>
     </div>
   );
