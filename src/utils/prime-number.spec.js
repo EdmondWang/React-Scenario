@@ -160,4 +160,27 @@ describe('prime number utility', () => {
             expect(isPrimeNumber2(7919)).toBe(true);
         });
     });
+
+    describe('performance benchmarks', () => {
+        const largePrime = 104729;
+        const iterations = 100;
+
+        test(`measures performance of isPrimeNumber1 with ${largePrime} (${iterations} iterations)`, () => {
+            console.time('isPrimeNumber1');
+            for (let i = 0; i < iterations; i++) {
+                isPrimeNumber1(largePrime);
+            }
+            console.timeEnd('isPrimeNumber1');
+            expect(true).toBe(true);
+        });
+
+        test(`measures performance of isPrimeNumber2 with ${largePrime} (${iterations} iterations)`, () => {
+            console.time('isPrimeNumber2');
+            for (let i = 0; i < iterations; i++) {
+                isPrimeNumber2(largePrime);
+            }
+            console.timeEnd('isPrimeNumber2');
+            expect(true).toBe(true);
+        });
+    });
 });
