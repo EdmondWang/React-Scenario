@@ -5,9 +5,9 @@ import {
     waitFor,
     prettyDOM,
 } from '@testing-library/react';
-import App from './App';
+import Counter from '.';
 
-describe('App Component', () => {
+describe('Counter Component', () => {
     test('renders initial count as 0', () => {
         const { container } = render(<App />);
         expect(screen.getByText(/Count: 0/i)).toBeInTheDocument();
@@ -15,7 +15,7 @@ describe('App Component', () => {
     });
 
     test('increments count after 1 second when button is clicked', async () => {
-        render(<App />);
+        render(<Counter />);
         const button = screen.getByTestId('start');
         fireEvent.click(button);
         await waitFor(
