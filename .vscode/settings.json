@@ -1,5 +1,13 @@
 {
-  "editor.formatOnSave": true,
-  "editor.defaultFormatter": "esbenp.prettier-vscode",
-  "cSpell.words": ["chainlink", "dotenvx", "funder", "funders", "fundme", "typechain"]
+    "editor.formatOnSave": true,
+    "editor.defaultFormatter": "esbenp.prettier-vscode",
+    "cSpell.words": [
+        "chainlink",
+        "dotenvx",
+        "funder",
+        "funders",
+        "fundme",
+        "gundam",
+        "typechain"
+    ]
 }

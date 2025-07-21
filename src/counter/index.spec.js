@@ -9,7 +9,7 @@ import Counter from '.';
 
 describe('Counter Component', () => {
     test('renders initial count as 0', () => {
-        const { container } = render(<App />);
+        const { container } = render(<Counter />);
         expect(screen.getByText(/Count: 0/i)).toBeInTheDocument();
         console.log(prettyDOM(container));
     });

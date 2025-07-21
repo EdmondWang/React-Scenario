@@ -5,9 +5,9 @@ import TreeQuiz from './tree-quiz/index.js';
 const App = () => {
     return (
         <div className="App">
-            <h2 className="Case">React Counter</h2>
+            <h2 className="Case">Timer</h2>
             <Counter />
-            <h2 className="Case">Tree selection</h2>
+            <h2 className="Case">Favorite Gundam</h2>
             <TreeQuiz />
         </div>
     );

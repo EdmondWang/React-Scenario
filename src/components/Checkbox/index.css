@@ -26,5 +26,9 @@
     background: blue;
 }
 
+.checkbox-interactive-control.indeterminate {
+    background: cyan;
+}
+
 .checkbox-label {
 }
