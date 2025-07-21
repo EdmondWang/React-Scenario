@@ -6,6 +6,9 @@ import './index.css';
 export const getNodeStatus = (children) => {
     if (!children) return { checked: false, indeterminate: false };
     const checkedCount = children.filter((child) => child.checked).length;
+    if (checkedCount <= 0) {
+        return { checked: false, indeterminate: false };
+    }
     if (checkedCount === children.length) {
         return { checked: true, indeterminate: false };
     }
@@ -38,13 +41,18 @@ const TreeQuiz = () => {
             if (node.id === targetId) {
                 return setCheckedRecursively(node, checked);
             }
-            const newChildren = updateNodeState(
-                node.children,
-                targetId,
-                checked
-            );
-            const status = getNodeStatus(newChildren);
-            return { ...node, ...status, children: newChildren };
+
+            if (node.children?.length > 0) {
+                const newChildren = updateNodeState(
+                    node.children,
+                    targetId,
+                    checked
+                );
+                const status = getNodeStatus(newChildren);
+                return { ...node, ...status, children: newChildren };
+            }
+
+            return node;
         });
         return newNodes;
     };
