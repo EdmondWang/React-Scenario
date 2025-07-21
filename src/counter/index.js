@@ -49,9 +49,10 @@ const Counter = () => {
             </div>
             <span
                 style={{
+                    lineHeight: '30px',
                     color: isPrimeNumber2(count) ? 'green' : 'red',
                     transition: 'font-size ease 0.2s',
-                    fontSize: isPrimeNumber2(count) ? '16px' : '24px',
+                    fontSize: isPrimeNumber2(count) ? '24px' : '16px',
                 }}
             >
                 Count: {count}
