@@ -2,13 +2,13 @@ export const gundamTimeline = [
     {
         id: 'uc-era',
         name: 'UC纪元 (Universal Century)',
-        startYear: 1979,
-        animations: [
+        year: 1979,
+        children: [
             {
                 id: 'mobile-suit-gundam',
                 name: '机动战士高达 (Mobile Suit Gundam)',
                 year: 1979,
-                gundams: [
+                children: [
                     { name: 'RX-78-2 高达 (Gundam)', id: 'rx-78-2-gundam' },
                     { name: 'MS-06 扎古II (Zaku II)', id: 'ms-06-zaku-ii' },
                     { name: 'MS-07B 老虎 (Gouf)', id: 'ms-07b-gouf' },
@@ -18,7 +18,7 @@ export const gundamTimeline = [
                 id: 'zeta-gundam',
                 name: '机动战士Z高达 (Zeta Gundam)',
                 year: 1985,
-                gundams: [
+                children: [
                     {
                         name: 'MSZ-006 Ζ高达 (Zeta Gundam)',
                         id: 'msz-006-zeta-gundam',
@@ -37,7 +37,7 @@ export const gundamTimeline = [
                 id: 'chars-counterattack',
                 name: "逆袭的夏亚 (Char's Counterattack)",
                 year: 1988,
-                gundams: [
+                children: [
                     { name: 'RX-93 ν高达 (ν Gundam)', id: 'rx-93-nu-gundam' },
                     { name: 'MSN-04 沙扎比 (Sazabi)', id: 'msn-04-sazabi' },
                     { name: 'RGM-89 杰刚 (Jegan)', id: 'rgm-89-jegan' },
@@ -48,13 +48,13 @@ export const gundamTimeline = [
     {
         id: 'ce-era',
         name: 'CE纪元 (Cosmic Era)',
-        startYear: 2002,
-        animations: [
+        year: 2002,
+        children: [
             {
                 id: 'gundam-seed',
                 name: '机动战士高达SEED (SEED)',
                 year: 2002,
-                gundams: [
+                children: [
                     {
                         name: 'GAT-X105 突击高达 (Strike Gundam)',
                         id: 'gat-x105-strike',
@@ -73,7 +73,7 @@ export const gundamTimeline = [
                 id: 'gundam-seed-destiny',
                 name: '机动战士高达SEED DESTINY (SEED DESTINY)',
                 year: 2004,
-                gundams: [
+                children: [
                     {
                         name: 'ZGMF-X56S 脉冲高达 (Impulse Gundam)',
                         id: 'zgmf-x56s-impulse',
@@ -93,8 +93,8 @@ export const gundamTimeline = [
     {
         id: '00-era',
         name: '00纪元 (AD 2307)',
-        startYear: 2007,
-        animations: [
+        year: 2007,
+        children: [
             {
                 id: 'gundam-00',
                 name: '机动战士高达00 (Gundam 00)',
@@ -128,8 +128,8 @@ export const gundamTimeline = [
     {
         id: 'iron-blooded-era',
         name: '铁血的奥尔芬斯 (Iron-Blooded Orphans)',
-        startYear: 2015,
-        animations: [
+        year: 2015,
+        children: [
             {
                 id: 'iron-blooded-orphans-season-1',
                 name: '铁血的奥尔芬斯 (第一季)',
@@ -165,8 +165,8 @@ export const gundamTimeline = [
     {
         id: 'other-worlds',
         name: '其他独立世界观',
-        startYear: 1983,
-        animations: [
+        year: 1983,
+        children: [
             {
                 id: 'gundam-v',
                 name: '机动战士V高达 (V Gundam)',

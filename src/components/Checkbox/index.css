@@ -1,0 +1,30 @@
+.checkbox-wrapper {
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+.checkbox-control {
+    display: none;
+}
+
+.checkbox-interactive-control {
+    display: block;
+    width: 24px;
+    height: 24px;
+    border: 1px solid #ccc;
+    margin: 4px;
+    cursor: pointer;
+}
+
+.checkbox-interactive-control:hover {
+    box-shadow: 2px 2px 1px #ddd;
+}
+
+.checkbox-interactive-control.checked {
+    background: blue;
+}
+
+.checkbox-label {
+}
