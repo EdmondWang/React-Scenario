@@ -1,4 +1,4 @@
-import React, { useRef, useState } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import { isPrimeNumber2 } from './utils/prime-number';
 
 const Counter = () => {
@@ -31,6 +31,15 @@ const Counter = () => {
     const startValChanged = (e) => {
         setStartVal(parseInt(e.target.value, 10));
     };
+
+    useEffect(() => {
+        setInterval(() => {
+            console.log('useEffect', count);
+        }, 1000);
+        return () => {
+            clearTimerRef();
+        };
+    }, [count]);
 
     return (
         <div className="Counter">
