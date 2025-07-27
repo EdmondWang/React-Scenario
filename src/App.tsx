@@ -5,6 +5,7 @@ import TreeQuizFeature from './features/tree-quiz/index.tsx';
 import TodoListFeature from './features/todo-list/index.tsx';
 import ProgressBarFeature from './features/progress-bar/index.tsx';
 import CardListFeature from './features/card-list/index.tsx';
+import CardListFromTrae from './features/card-list-from-trae/index.tsx';
 
 function Home() {
     return (
@@ -42,6 +43,14 @@ function Home() {
                             Initial data loading and subsequent pagination
                         </span>
                     </li>
+                    <li>
+                        <Link to="/card-list-from-trae">
+                            Card List from Trae
+                        </Link>
+                        <span className="description">
+                            New card list with ID pagination and time formatting
+                        </span>
+                    </li>
                 </ul>
             </nav>
         </div>
@@ -61,6 +70,10 @@ const App = () => {
                     element={<ProgressBarFeature />}
                 ></Route>
                 <Route path="/card-list" element={<CardListFeature />}></Route>
+                <Route
+                    path="/card-list-from-trae"
+                    element={<CardListFromTrae />}
+                ></Route>
             </Routes>
         </div>
     );
