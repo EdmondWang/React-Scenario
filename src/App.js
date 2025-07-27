@@ -1,20 +1,28 @@
 import React from 'react';
 import { Routes, Route, Link } from 'react-router-dom';
-import Counter from './counter/index.js';
-import TreeQuiz from './tree-quiz/index.js';
+import Counter from './features/timer/index.js';
+import TreeQuiz from './features/tree-quiz/index.js';
+import TodoList from './features/todo-list/index.js';
 
 function Home() {
-  return (
-    <div className="home">
-      <h1>React Scenario Examples</h1>
-      <nav>
-        <ul>
-          <li><Link to="/timer">Timer</Link></li>
-          <li><Link to="/favorite-gundam">Favorite Gundam</Link></li>
-        </ul>
-      </nav>
-    </div>
-  );
+    return (
+        <div className="home">
+            <h1>React Scenario Examples</h1>
+            <nav>
+                <ul>
+                    <li>
+                        <Link to="/timer">Timer</Link>
+                    </li>
+                    <li>
+                        <Link to="/favorite-gundam">Favorite Gundam</Link>
+                    </li>
+                    <li>
+                        <Link to="/todo-list">Todo List</Link>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+    );
 }
 
 const App = () => {
@@ -24,6 +32,7 @@ const App = () => {
                 <Route path="/" element={<Home />} />
                 <Route path="/timer" element={<Counter />} />
                 <Route path="/favorite-gundam" element={<TreeQuiz />} />
+                <Route path="/todo-list" element={<TodoList />}></Route>
             </Routes>
         </div>
     );
