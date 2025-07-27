@@ -21,3 +21,17 @@
     height: auto;
     padding: 24px;
 }
+
+.card-title {
+    display: flex;
+    width: 100%;
+    justify-content: flex-start;
+    align-items: flex-start;
+}
+
+.post-fetch-datetime-text {
+    margin-left: auto;
+    color: gray;
+    font-size: 12px;
+    width: 160px;
+}
