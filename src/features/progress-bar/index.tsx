@@ -1,4 +1,4 @@
-import React, { useRef, useState } from 'react';
+import React, { useRef, useState, useEffect } from 'react';
 import './index.css';
 
 const ProgressBarFeature: React.FC = () => {
@@ -7,6 +7,7 @@ const ProgressBarFeature: React.FC = () => {
     const totalTime = 5; //second
     const span = totalProgress / totalTime;
     const progressRef = useRef(0);
+    const progressValueRef = useRef(0);
 
     const updateProgress = () => {
         if (progressRef) {
@@ -29,6 +30,18 @@ const ProgressBarFeature: React.FC = () => {
     const clickStart = () => {
         updateProgress();
     };
+
+    useEffect(() => {
+        progressValueRef.current = progress;
+    }, [progress]);
+
+    useEffect(() => {
+        const timer = setTimeout(() => {
+            console.log('progress', progressValueRef.current);
+        }, 8000);
+
+        return () => clearTimeout(timer);
+    }, []);
 
     return (
         <div>

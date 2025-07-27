@@ -4,6 +4,7 @@ import TimerFeature from './features/timer/index.tsx';
 import TreeQuizFeature from './features/tree-quiz/index.tsx';
 import TodoListFeature from './features/todo-list/index.tsx';
 import ProgressBarFeature from './features/progress-bar/index.tsx';
+import CardListFeature from './features/card-list/index.tsx';
 
 function Home() {
     return (
@@ -23,6 +24,9 @@ function Home() {
                     <li>
                         <Link to="/progress-bar">Progress Bar</Link>
                     </li>
+                    <li>
+                        <Link to="/card-list">Card List</Link>
+                    </li>
                 </ul>
             </nav>
         </div>
@@ -41,6 +45,7 @@ const App = () => {
                     path="/progress-bar"
                     element={<ProgressBarFeature />}
                 ></Route>
+                <Route path="/card-list" element={<CardListFeature />}></Route>
             </Routes>
         </div>
     );
