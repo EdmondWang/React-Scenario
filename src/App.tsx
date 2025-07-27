@@ -1,8 +1,8 @@
 import React from 'react';
 import { Routes, Route, Link } from 'react-router-dom';
-import Counter from './features/timer/index.js';
-import TreeQuiz from './features/tree-quiz/index.js';
-import TodoList from './features/todo-list/index.js';
+import Counter from './features/timer/index.tsx';
+import TreeQuiz from './features/tree-quiz/index.tsx';
+import TodoList from './features/todo-list/index.tsx';
 
 function Home() {
     return (

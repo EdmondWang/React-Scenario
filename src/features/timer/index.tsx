@@ -1,10 +1,11 @@
 import React, { useEffect, useRef, useState } from 'react';
+
 import { isPrimeNumber2 } from './utils/prime-number';
 
 const Counter = () => {
     const [startVal, setStartVal] = useState(0);
     const [count, setCount] = useState(0);
-    const timerRef = useRef();
+    const timerRef = useRef<number | undefined>(undefined);
 
     const clearTimerRef = () => {
         if (timerRef.current) {
@@ -14,7 +15,7 @@ const Counter = () => {
 
     const start = () => {
         function incCount() {
-            timerRef.current = setTimeout(() => {
+            timerRef.current = window.setTimeout(() => {
                 setCount((prev) => prev + 1);
                 incCount();
             }, 1000);
@@ -28,7 +29,7 @@ const Counter = () => {
         clearTimerRef();
     };
 
-    const startValChanged = (e) => {
+    const startValChanged = (e: React.ChangeEvent<HTMLInputElement>) => {
         setStartVal(parseInt(e.target.value, 10));
     };
 

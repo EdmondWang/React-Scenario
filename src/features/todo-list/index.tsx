@@ -1,4 +1,10 @@
-import React, { useEffect, useRef, useState } from 'react';
+import React, { useState } from 'react';
+
+interface Todo {
+    id: string | number;
+    name: string;
+    completed: boolean;
+}
 
 /**
  * 
@@ -12,7 +18,7 @@ Exercise 1: Todo List with Local Storage​
 
  */
 const TodoList = () => {
-    const [todos, setTodos] = useState([]);
+    const [todos, setTodos] = useState<Todo[]>([]);
     return (
         <div>
             <h1>TODO LIST</h1>
