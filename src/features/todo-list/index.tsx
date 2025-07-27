@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import TodoItem from './todo-item';
 import { Todo } from './todo.model';
 
@@ -13,9 +13,15 @@ Exercise 1: Todo List with Local Storage​
 4. Add input validation (empty todo prevention)
 
  */
-const TodoList = () => {
+const TodoListFeature = () => {
     const [input, setInput] = useState('');
-    const [todos, setTodos] = useState<Todo[]>([]);
+    const [todos, setTodos] = useState<Todo[]>(() => {
+        const lsItems = localStorage.getItem('todos');
+        if (lsItems) {
+            return JSON.parse(lsItems);
+        }
+        return [];
+    });
 
     const clickAddTodo = ({ name }: { name: string }) => {
         if (name.trim().length === 0) {
@@ -45,6 +51,10 @@ const TodoList = () => {
             return prev.filter((todo) => todo.id !== it.id);
         });
     }, []);
+
+    useEffect(() => {
+        localStorage.setItem('todos', JSON.stringify(todos));
+    }, [todos]);
 
     return (
         <div>
@@ -81,4 +91,4 @@ const TodoList = () => {
     );
 };
 
-export default TodoList;
+export default TodoListFeature;

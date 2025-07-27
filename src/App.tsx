@@ -1,8 +1,9 @@
 import React from 'react';
 import { Routes, Route, Link } from 'react-router-dom';
-import Counter from './features/timer/index.tsx';
-import TreeQuiz from './features/tree-quiz/index.tsx';
-import TodoList from './features/todo-list/index.tsx';
+import TimerFeature from './features/timer/index.tsx';
+import TreeQuizFeature from './features/tree-quiz/index.tsx';
+import TodoListFeature from './features/todo-list/index.tsx';
+import ProgressBarFeature from './features/progress-bar/index.tsx';
 
 function Home() {
     return (
@@ -19,6 +20,9 @@ function Home() {
                     <li>
                         <Link to="/todo-list">Todo List</Link>
                     </li>
+                    <li>
+                        <Link to="/progress-bar">Progress Bar</Link>
+                    </li>
                 </ul>
             </nav>
         </div>
@@ -30,9 +34,13 @@ const App = () => {
         <div className="App">
             <Routes>
                 <Route path="/" element={<Home />} />
-                <Route path="/timer" element={<Counter />} />
-                <Route path="/favorite-gundam" element={<TreeQuiz />} />
-                <Route path="/todo-list" element={<TodoList />}></Route>
+                <Route path="/timer" element={<TimerFeature />} />
+                <Route path="/favorite-gundam" element={<TreeQuizFeature />} />
+                <Route path="/todo-list" element={<TodoListFeature />}></Route>
+                <Route
+                    path="/progress-bar"
+                    element={<ProgressBarFeature />}
+                ></Route>
             </Routes>
         </div>
     );

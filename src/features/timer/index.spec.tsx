@@ -5,17 +5,17 @@ import {
     waitFor,
     prettyDOM,
 } from '@testing-library/react';
-import Timer from '.';
+import TimerFeature from '.';
 
 describe('Timer Component', () => {
     test('renders initial count as 0', () => {
-        const { container } = render(<Timer />);
+        const { container } = render(<TimerFeature />);
         expect(screen.getByText(/Count: 0/i)).toBeInTheDocument();
         console.log(prettyDOM(container));
     });
 
     test('increments count after 1 second when button is clicked', async () => {
-        render(<Timer />);
+        render(<TimerFeature />);
         const button = screen.getByTestId('start');
         fireEvent.click(button);
         await waitFor(
