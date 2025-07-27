@@ -15,7 +15,8 @@ const CardListFeature = () => {
 
     const clickAddCards = async () => {
         const newIdIndex = idIndex + 6;
-        const newCardPromises = idList.slice(idIndex, newIdIndex).map((id) => {
+        const reqIdList = idList.slice(idIndex, newIdIndex);
+        const newCardPromises = reqIdList.map((id) => {
             return fetch(
                 `https://jsonplaceholder.typicode.com/posts/${id}`
             ).then((res) => res.json());
@@ -33,7 +34,7 @@ const CardListFeature = () => {
                 };
             } else if (r.status === 'rejected') {
                 newVal = {
-                    post: { id: idList[index] },
+                    post: { id: reqIdList[index] },
                     error: r.reason?.message ?? 'Failed to fetch',
                 };
             }
