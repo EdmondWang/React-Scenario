@@ -1,4 +1,5 @@
 import React, { useRef, useEffect } from 'react';
+import './index.css';
 
 interface CheckboxProps {
     id: string;
@@ -9,7 +10,14 @@ interface CheckboxProps {
     onChange?: (checked: boolean) => void;
 }
 
-const Checkbox: React.FC<CheckboxProps> = ({ id, name, label, checked = false, indeterminate = false, onChange }) => {
+const Checkbox: React.FC<CheckboxProps> = ({
+    id,
+    name,
+    label,
+    checked = false,
+    indeterminate = false,
+    onChange,
+}) => {
     const inputRef = useRef<HTMLInputElement>(null);
 
     useEffect(() => {
@@ -36,9 +44,8 @@ const Checkbox: React.FC<CheckboxProps> = ({ id, name, label, checked = false, i
                     ${checked ? 'checked' : ''}
                     ${indeterminate ? 'indeterminate' : ''}
                 `}
-            >
-                {label}
-            </label>
+            ></label>
+            {label}
         </div>
     );
 };

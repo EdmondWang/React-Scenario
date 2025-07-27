@@ -1,10 +1,6 @@
 import React, { useState } from 'react';
-
-interface Todo {
-    id: string | number;
-    name: string;
-    completed: boolean;
-}
+import TodoItem from './todo-item';
+import { Todo } from './todo.model';
 
 /**
  * 
@@ -18,19 +14,67 @@ Exercise 1: Todo List with Local Storage​
 
  */
 const TodoList = () => {
+    const [input, setInput] = useState('');
     const [todos, setTodos] = useState<Todo[]>([]);
+
+    const clickAddTodo = ({ name }: { name: string }) => {
+        if (name.trim().length === 0) {
+            return;
+        }
+        setTodos((prev) => [
+            ...prev,
+            { id: prev.length + 1, name, completed: false },
+        ]);
+    };
+
+    const onToggleCompleted = React.useCallback((it: Todo) => {
+        setTodos((prev) => {
+            return prev.map((todo) =>
+                todo.id === it.id
+                    ? {
+                          ...todo,
+                          completed: !todo.completed,
+                      }
+                    : todo
+            );
+        });
+    }, []);
+
+    const onClickDelete = React.useCallback((it: Todo) => {
+        setTodos((prev) => {
+            return prev.filter((todo) => todo.id !== it.id);
+        });
+    }, []);
+
     return (
         <div>
             <h1>TODO LIST</h1>
             <div className="actions-bar">
-                <button>Add Todo</button>
+                <input
+                    type="text"
+                    value={input}
+                    onChange={(e) => setInput(e.target.value)}
+                />
+                <button onClick={() => clickAddTodo({ name: input })}>
+                    Add Todo
+                </button>
                 <button>Delete todo</button>
             </div>
 
             <div className="todo-list">
                 {todos?.length > 0 &&
                     todos.map((it) => {
-                        return <div key={it.id}>{it.name}</div>;
+                        return (
+                            <div key={it.id}>
+                                <TodoItem
+                                    id={it.id}
+                                    name={it.name}
+                                    completed={it.completed}
+                                    onToggleCompleted={onToggleCompleted}
+                                    onClickDelete={onClickDelete}
+                                />
+                            </div>
+                        );
                     })}
             </div>
         </div>
