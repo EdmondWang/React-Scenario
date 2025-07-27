@@ -40,7 +40,7 @@ export const setCheckedRecursively = (
     };
 };
 
-const TreeQuiz = () => {
+const TreeQuizFeature = () => {
     const [treeData, setTreeData] = useState<TreeNode[]>(
         structuredClone(gundamTimeline)
     );
@@ -96,4 +96,4 @@ const TreeQuiz = () => {
     return <div>{renderTree(treeData)}</div>;
 };
 
-export default TreeQuiz;
+export default TreeQuizFeature;
