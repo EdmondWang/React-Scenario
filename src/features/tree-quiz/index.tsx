@@ -11,7 +11,9 @@ interface TreeNode {
     children?: TreeNode[];
 }
 
-export const getNodeStatus = (children?: TreeNode[]): { checked: boolean; indeterminate: boolean } => {
+export const getNodeStatus = (
+    children?: TreeNode[]
+): { checked: boolean; indeterminate: boolean } => {
     if (!children) return { checked: false, indeterminate: false };
     const checkedCount = children.filter((child) => child.checked).length;
     if (checkedCount <= 0) {
@@ -23,17 +25,25 @@ export const getNodeStatus = (children?: TreeNode[]): { checked: boolean; indete
     return { checked: false, indeterminate: true };
 };
 
-export const setCheckedRecursively = (node: TreeNode, checked: boolean): TreeNode => {
+export const setCheckedRecursively = (
+    node: TreeNode,
+    checked: boolean
+): TreeNode => {
     return {
         ...node,
         checked,
         indeterminate: false,
-        children: node.children?.map((child) => setCheckedRecursively(child, checked)) ?? [],
+        children:
+            node.children?.map((child) =>
+                setCheckedRecursively(child, checked)
+            ) ?? [],
     };
 };
 
 const TreeQuiz = () => {
-    const [treeData, setTreeData] = useState<TreeNode[]>(structuredClone(gundamTimeline));
+    const [treeData, setTreeData] = useState<TreeNode[]>(
+        structuredClone(gundamTimeline)
+    );
 
     const updateNodeState = (
         nodes: TreeNode[] | undefined,
@@ -46,7 +56,11 @@ const TreeQuiz = () => {
             }
 
             if (node.children?.length) {
-                const newChildren = updateNodeState(node.children, targetId, checked);
+                const newChildren = updateNodeState(
+                    node.children,
+                    targetId,
+                    checked
+                );
                 const status = getNodeStatus(newChildren);
                 return { ...node, ...status, children: newChildren };
             }
@@ -72,7 +86,7 @@ const TreeQuiz = () => {
                         handleClickCheckbox(it.id, checked);
                     }}
                 />
-                {it.children?.length && (
+                {it.children && it.children.length > 0 && (
                     <div className="children">{renderTree(it.children)}</div>
                 )}
             </div>

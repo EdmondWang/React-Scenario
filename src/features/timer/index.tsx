@@ -2,7 +2,7 @@ import React, { useEffect, useRef, useState } from 'react';
 
 import { isPrimeNumber2 } from './utils/prime-number';
 
-const Counter = () => {
+const Timer = () => {
     const [startVal, setStartVal] = useState(0);
     const [count, setCount] = useState(0);
     const timerRef = useRef<number | undefined>(undefined);
@@ -71,4 +71,4 @@ const Counter = () => {
     );
 };
 
-export default Counter;
+export default Timer;
