@@ -1,6 +1,5 @@
 import React, { useState, useCallback } from 'react';
 import SelfCompeteJsBar from './self-complete-js-bar';
-import SelfCompeteCssBar from './self-complete-css-bar';
 import './index.css';
 
 const CreateProgressBarFeature: React.FC = () => {
