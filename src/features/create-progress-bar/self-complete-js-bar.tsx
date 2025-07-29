@@ -2,7 +2,7 @@ import React, { useRef, useState, useEffect } from 'react';
 import ProgressBar from '../../components/ProgressBar';
 import './index.css';
 
-const SelfCompeteBar: React.FC = () => {
+const SelfCompeteJsBar: React.FC = () => {
     const [progress, setProgress] = useState(0);
     const progressTimerRef = useRef<number>(0);
 
@@ -41,4 +41,4 @@ const SelfCompeteBar: React.FC = () => {
     );
 };
 
-export default SelfCompeteBar;
+export default SelfCompeteJsBar;

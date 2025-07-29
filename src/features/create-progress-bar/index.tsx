@@ -1,5 +1,6 @@
 import React, { useState, useCallback } from 'react';
-import SelfCompeteBar from './self-complete-bar';
+import SelfCompeteJsBar from './self-complete-js-bar';
+import SelfCompeteCssBar from './self-complete-css-bar';
 import './index.css';
 
 const CreateProgressBarFeature: React.FC = () => {
@@ -24,7 +25,11 @@ const CreateProgressBarFeature: React.FC = () => {
             <button onClick={clickAdd}>Add</button>
             {progresses.length > 0 &&
                 progresses.map((prg) => {
-                    return <SelfCompeteBar key={prg.id} />;
+                    return (
+                        <div key={prg.id}>
+                            <SelfCompeteJsBar />
+                        </div>
+                    );
                 })}
         </div>
     );
