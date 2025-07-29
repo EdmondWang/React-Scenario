@@ -1,7 +1,8 @@
 import React, { useRef, useState, useEffect } from 'react';
+import ProgressBar from '../../components/ProgressBar';
 import './index.css';
 
-const ProgressBarFeature: React.FC = () => {
+const CreateProgressBarFeature: React.FC = () => {
     const [progress, setProgress] = useState(0);
     const totalProgress = 100;
     const totalTime = 5; //second
@@ -45,19 +46,14 @@ const ProgressBarFeature: React.FC = () => {
 
     return (
         <div>
-            <h1>Progress Bar</h1>
+            <h1>Create Progress Bar</h1>
             <button onClick={clickStart}>Start</button>
-            <div className="progress-bar">
-                <div
-                    className="progress-completed"
-                    style={{ width: `${progress}%` }}
-                ></div>
-                <span className="progress-label">
-                    {progress} / {totalProgress}%
-                </span>
-            </div>
+            <ProgressBar
+                progress={progressValueRef.current}
+                totalProgress={totalProgress}
+            />
         </div>
     );
 };
 
-export default ProgressBarFeature;
+export default CreateProgressBarFeature;
