@@ -3,20 +3,20 @@
   justify-content: center;
   align-items: center;
   min-height: 100vh;
-  background-color: #f5f7fa;
+  background-color: var(--background-color);
   padding: 20px;
   box-sizing: border-box;
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
 .card {
-  background-color: white;
-  border-radius: 12px;
-  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+  background-color: var(--card-background);
+  border-radius: var(--border-radius);
+  box-shadow: var(--shadow);
   padding: 30px;
   width: 100%;
   max-width: 500px;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  transition: var(--transition);
 }
 
 .card:hover {
@@ -25,7 +25,7 @@
 }
 
 .title {
-  color: #333;
+  color: var(--text-primary);
   font-size: 24px;
   margin-bottom: 25px;
   text-align: center;
@@ -41,7 +41,7 @@
   transform: translateX(-50%);
   width: 60px;
   height: 3px;
-  background: linear-gradient(90deg, #ff6b6b, #ffa502);
+  background: linear-gradient(90deg, var(--secondary-color), var(--accent-color));
   border-radius: 2px;
 }
 
@@ -59,16 +59,16 @@
 
 .label {
   font-weight: 600;
-  color: #555;
+  color: var(--text-secondary);
 }
 
 .value {
-  color: #333;
+  color: var(--text-primary);
   font-weight: 500;
 }
 
 .leak-count {
-  color: #ff6b6b;
+  color: var(--secondary-color);
   font-weight: 700;
   font-size: 18px;
   animation: pulse 2s infinite;
@@ -83,19 +83,19 @@
 .reload-button {
   width: 100%;
   padding: 12px;
-  background: linear-gradient(90deg, #4a6fa5, #6b8cce);
+  background: linear-gradient(90deg, var(--primary-color), var(--primary-light));
   color: white;
   border: none;
-  border-radius: 6px;
+  border-radius: var(--border-radius);
   font-size: 16px;
   font-weight: 600;
   cursor: pointer;
-  transition: background-color 0.3s ease, transform 0.2s ease;
+  transition: var(--transition);
   margin-bottom: 25px;
 }
 
 .reload-button:hover {
-  background: linear-gradient(90deg, #3a5a8a, #5b7bc8);
+  background: linear-gradient(90deg, var(--primary-dark), var(--primary-color));
   transform: translateY(-2px);
 }
 
@@ -121,7 +121,7 @@
 }
 
 .indicator.active {
-  background-color: #ff6b6b;
+  background-color: var(--secondary-color);
   box-shadow: 0 0 0 rgba(255, 107, 107, 0.7);
   animation: pulse-ring 1.5s cubic-bezier(0.215, 0.61, 0.355, 1) infinite;
 }
@@ -139,10 +139,10 @@
 }
 
 .warning-text {
-  background-color: #fff3cd;
-  color: #856404;
+  background-color: var(--warning-bg);
+  color: var(--warning-text);
   padding: 15px;
-  border-radius: 6px;
+  border-radius: var(--border-radius);
   font-size: 14px;
   text-align: center;
 }

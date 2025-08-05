@@ -1,6 +1,7 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useCallback } from 'react';
 import TodoItem from './todo-item';
 import { Todo } from './todo.model';
+import './styles.css';
 
 /**
  * 
@@ -57,35 +58,43 @@ const TodoListFeature = () => {
     }, [todos]);
 
     return (
-        <div>
-            <h1>TODO LIST</h1>
-            <div className="actions-bar">
-                <input
-                    type="text"
-                    value={input}
-                    onChange={(e) => setInput(e.target.value)}
-                />
-                <button onClick={() => clickAddTodo({ name: input })}>
-                    Add Todo
-                </button>
-                <button>Delete todo</button>
-            </div>
+        <div className="todo-container">
+            <div className="todo-card card">
+                <h1>TODO LIST</h1>
+                <p className="description">React.useCallBack and React.memo example</p>
+                <div className="actions-bar">
+                    <input
+                        type="text"
+                        value={input}
+                        onChange={(e) => setInput(e.target.value)}
+                        placeholder="Add a new todo..."
+                    />
+                    <button onClick={() => clickAddTodo({ name: input })}>
+                        Add Todo
+                    </button>
+                    <button onClick={() => setTodos([])}>
+                        Clear All
+                    </button>
+                </div>
 
-            <div className="todo-list">
-                {todos?.length > 0 &&
-                    todos.map((it) => {
-                        return (
-                            <div key={it.id}>
-                                <TodoItem
-                                    id={it.id}
-                                    name={it.name}
-                                    completed={it.completed}
-                                    onToggleCompleted={onToggleCompleted}
-                                    onClickDelete={onClickDelete}
-                                />
-                            </div>
-                        );
-                    })}
+                <div className="todo-list">
+                    {todos?.length > 0 ? (
+                        todos.map((it) => (
+                            <TodoItem
+                                key={it.id}
+                                id={it.id}
+                                name={it.name}
+                                completed={it.completed}
+                                onToggleCompleted={onToggleCompleted}
+                                onClickDelete={onClickDelete}
+                            />
+                        ))
+                    ) : (
+                        <div className="empty-state">
+                            No todos yet. Add one above!
+                        </div>
+                    )}
+                </div>
             </div>
         </div>
     );
