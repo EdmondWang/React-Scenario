@@ -1,0 +1,162 @@
+.leak-demo-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  background-color: #f5f7fa;
+  padding: 20px;
+  box-sizing: border-box;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.card {
+  background-color: white;
+  border-radius: 12px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+  padding: 30px;
+  width: 100%;
+  max-width: 500px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
+}
+
+.title {
+  color: #333;
+  font-size: 24px;
+  margin-bottom: 25px;
+  text-align: center;
+  position: relative;
+  padding-bottom: 15px;
+}
+
+.title::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 60px;
+  height: 3px;
+  background: linear-gradient(90deg, #ff6b6b, #ffa502);
+  border-radius: 2px;
+}
+
+.info-section {
+  margin-bottom: 25px;
+}
+
+.info-item {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 12px;
+  padding-bottom: 12px;
+  border-bottom: 1px solid #eee;
+}
+
+.label {
+  font-weight: 600;
+  color: #555;
+}
+
+.value {
+  color: #333;
+  font-weight: 500;
+}
+
+.leak-count {
+  color: #ff6b6b;
+  font-weight: 700;
+  font-size: 18px;
+  animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+  0% { opacity: 1; }
+  50% { opacity: 0.7; }
+  100% { opacity: 1; }
+}
+
+.reload-button {
+  width: 100%;
+  padding: 12px;
+  background: linear-gradient(90deg, #4a6fa5, #6b8cce);
+  color: white;
+  border: none;
+  border-radius: 6px;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+  margin-bottom: 25px;
+}
+
+.reload-button:hover {
+  background: linear-gradient(90deg, #3a5a8a, #5b7bc8);
+  transform: translateY(-2px);
+}
+
+.reload-button:active {
+  transform: translateY(0);
+}
+
+.leak-indicators {
+  margin-bottom: 20px;
+}
+
+.indicator-item {
+  display: flex;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.indicator {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  margin-right: 10px;
+}
+
+.indicator.active {
+  background-color: #ff6b6b;
+  box-shadow: 0 0 0 rgba(255, 107, 107, 0.7);
+  animation: pulse-ring 1.5s cubic-bezier(0.215, 0.61, 0.355, 1) infinite;
+}
+
+@keyframes pulse-ring {
+  0% {
+    box-shadow: 0 0 0 0 rgba(255, 107, 107, 0.7);
+  }
+  70% {
+    box-shadow: 0 0 0 10px rgba(255, 107, 107, 0);
+  }
+  100% {
+    box-shadow: 0 0 0 0 rgba(255, 107, 107, 0);
+  }
+}
+
+.warning-text {
+  background-color: #fff3cd;
+  color: #856404;
+  padding: 15px;
+  border-radius: 6px;
+  font-size: 14px;
+  text-align: center;
+}
+
+.warning-text p {
+  margin: 0;
+}
+
+@media (max-width: 500px) {
+  .card {
+    padding: 20px;
+  }
+
+  .title {
+    font-size: 20px;
+  }
+}
