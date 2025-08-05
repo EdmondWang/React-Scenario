@@ -6,6 +6,7 @@ import TodoListFeature from './features/todo-list/index.tsx';
 import CreateProgressBarFeature from './features/create-progress-bar/index.tsx';
 import CardListFeature from './features/card-list/index.tsx';
 import CardListFromTrae from './features/card-list-from-trae/index.tsx';
+import LeakDemo from './features/memory-leak/index.tsx';
 
 function Home() {
     return (
@@ -51,6 +52,12 @@ function Home() {
                             New card list with ID pagination and time formatting
                         </span>
                     </li>
+                    <li>
+                        <Link to="/memory-leak">Memory Leak Demo</Link>
+                        <span className="description">
+                            Demonstration of memory leaks in React
+                        </span>
+                    </li>
                 </ul>
             </nav>
         </div>
@@ -74,6 +81,7 @@ const App = () => {
                     path="/card-list-from-trae"
                     element={<CardListFromTrae />}
                 ></Route>
+                <Route path="/memory-leak" element={<LeakDemo />}></Route>
             </Routes>
         </div>
     );
