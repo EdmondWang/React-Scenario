@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import Card from './card';
 import { Post } from './post.model';
-import './styles.css';
+import './index.css';
 
 interface PostState {
     post: Post;
@@ -89,39 +89,23 @@ const CardListFeature = () => {
     }, [idList, fetchPaginatedPosts, initialLoadComplete]);
 
     return (
-        <div className="card-list-container">
-            <div className="card-list-header card">
-                <div>
-                    <h1>Card List</h1>
-                    <p className="description">
-                        This component demonstrates pagination and data loading with React.memo optimization.
-                        Click the button below to load more cards.
-                    </p>
-                </div>
-            </div>
-
+        <div>
             <button
                 className="add-card-btn"
                 disabled={isLoading}
                 onClick={clickAddCards}
             >
-                {isLoading ? 'Loading...' : 'Add More Cards'}
+                Add Cards
             </button>
-
             <div className="card-list">
-                {postList.length > 0 ? (
+                {postList.length > 0 &&
                     postList.map((postSt) => (
                         <Card
                             key={postSt.post.id}
                             post={postSt.post}
                             error={postSt.error}
                         />
-                    ))
-                ) : (
-                    <div className="loading-indicator">
-                        {isLoading ? 'Loading initial cards...' : 'No cards loaded yet. Click the button to add cards.'}
-                    </div>
-                )}
+                    ))}
             </div>
         </div>
     );

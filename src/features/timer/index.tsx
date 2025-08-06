@@ -1,6 +1,6 @@
 import React, { useEffect, useRef, useState } from 'react';
+
 import { isPrimeNumber2 } from './utils/prime-number';
-import './styles.css';
 
 const TimerFeature = () => {
     const [startVal, setStartVal] = useState(0);
@@ -43,28 +43,30 @@ const TimerFeature = () => {
     }, [count]);
 
     return (
-        <div className="timer-container">
-            <div className="Counter card">
-                <h2>Timer Feature</h2>
-                <p className="description">Demonstrates closure trap of useEffect</p>
-                <div className="Bar">
-                    <input
-                        type="number"
-                        value={startVal}
-                        onChange={startValChanged}
-                        placeholder="Start value"
-                    />
-                    <button id="start" data-testid="start" onClick={start}>
-                        Start
-                    </button>
-                    <button id="stop" onClick={stop}>
-                        Stop
-                    </button>
-                </div>
-                <div className={`counter-display ${isPrimeNumber2(count) ? 'prime' : ''}`}>
-                    Count: {count}
-                </div>
+        <div className="Counter">
+            <div className="Bar">
+                <input
+                    type="number"
+                    value={startVal}
+                    onChange={startValChanged}
+                />
+                <button id="start" data-testid="start" onClick={start}>
+                    start
+                </button>
+                <button id="stop" onClick={stop}>
+                    stop
+                </button>
             </div>
+            <span
+                style={{
+                    lineHeight: '30px',
+                    color: isPrimeNumber2(count) ? 'green' : 'red',
+                    transition: 'font-size ease 0.2s',
+                    fontSize: isPrimeNumber2(count) ? '24px' : '16px',
+                }}
+            >
+                Count: {count}
+            </span>
         </div>
     );
 };

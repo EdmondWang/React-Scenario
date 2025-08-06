@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import Checkbox from '../../components/Checkbox';
 import { gundamTimeline } from './quiz-data';
-import './styles.css';
+import './index.css';
 
 interface TreeNode {
     id: string | number;
