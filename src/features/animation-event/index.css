@@ -1,0 +1,39 @@
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 50px;
+}
+
+.box {
+    width: 100px;
+    height: 100px;
+    background: #4caf50;
+    color: white;
+    padding: 16px;
+    border-radius: 8px;
+    opacity: 0;
+    transform: translateY(20px);
+    transition: all 0.5s ease; /* 过渡事件 */
+    animation: slideIn 0.5s forwards; /* 动画事件 */
+}
+
+.box.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* 关键帧动画 */
+@keyframes slideIn {
+    from {
+        transform: translateY(20px) scale(0.9);
+    }
+    to {
+        transform: translateY(0) scale(1);
+    }
+}
+
+/* 过渡状态 */
+.box.visible {
+    transition-property: opacity, transform;
+}

@@ -7,6 +7,7 @@ import CreateProgressBarFeature from './features/create-progress-bar/index.tsx';
 import CardListFeature from './features/card-list/index.tsx';
 import CardListFromTrae from './features/card-list-from-trae/index.tsx';
 import LeakDemo from './features/memory-leak/index.tsx';
+import AnimationEventFeature from './features/animation-event/index.tsx';
 
 function Home() {
     return (
@@ -58,6 +59,12 @@ function Home() {
                             Demonstration of memory leaks in React
                         </span>
                     </li>
+                    <li>
+                        <Link to="/animation-event">Animation Event</Link>
+                        <span className="description">
+                            Demonstration of animation event in React
+                        </span>
+                    </li>
                 </ul>
             </nav>
         </div>
@@ -82,6 +89,10 @@ const App = () => {
                     element={<CardListFromTrae />}
                 ></Route>
                 <Route path="/memory-leak" element={<LeakDemo />}></Route>
+                <Route
+                    path="/animation-event"
+                    element={<AnimationEventFeature />}
+                ></Route>
             </Routes>
         </div>
     );
