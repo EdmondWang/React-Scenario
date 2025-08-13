@@ -1,6 +1,6 @@
 import React from 'react';
 import { Todo } from './todo.model';
-import './todo-item.css';
+import styles from './todo-item.module.css';
 import Checkbox from '../../components/Checkbox';
 
 interface TodoItemProps {
@@ -20,7 +20,7 @@ const TodoItem: React.FC<TodoItemProps> = ({
 }) => {
     console.log(`render todo item`, id);
     return (
-        <div className="todo-item">
+        <div className={styles['todo-item']}>
             <Checkbox
                 id={`checkbox-${id}`}
                 name={name}
@@ -29,7 +29,7 @@ const TodoItem: React.FC<TodoItemProps> = ({
                 onChange={() => onToggleCompleted({ id, name, completed })}
             />
             <button
-                className="delete-btn"
+                className={styles['delete-btn']}
                 onClick={() => onClickDelete({ id, name, completed })}
             >
                 x

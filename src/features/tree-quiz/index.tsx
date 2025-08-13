@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import Checkbox from '../../components/Checkbox';
 import { gundamTimeline } from './quiz-data';
-import './index.css';
+import styles from './index.module.css';
 
 interface TreeNode {
     id: string | number;
@@ -87,7 +87,7 @@ const TreeQuizFeature = () => {
                     }}
                 />
                 {it.children && it.children.length > 0 && (
-                    <div className="children">{renderTree(it.children)}</div>
+                    <div className={styles.children}>{renderTree(it.children)}</div>
                 )}
             </div>
         ));

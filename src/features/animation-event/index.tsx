@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import './index.css';
+import styles from './index.module.css';
 
 const AnimationEventFeature = () => {
     const [isVisible, setIsVisible] = useState(false);
@@ -50,12 +50,12 @@ const AnimationEventFeature = () => {
     }, [animationType]);
 
     return (
-        <div className="animation-demo-container">
+        <div className={styles['animation-demo-container']}>
             <h2>React Animation Events Demo</h2>
             <p>This example demonstrates all animation events supported by React and their triggering timings</p>
 
-            <div className="controls">
-                <div className="animation-type-selector">
+            <div className={styles.controls}>
+                <div className={styles['animation-type-selector']}>
                     <label>Select animation type:</label>
                     <select
                         value={animationType}
@@ -67,15 +67,15 @@ const AnimationEventFeature = () => {
                     </select>
                 </div>
 
-                <button onClick={resetAnimation} className="reset-button">
+                <button onClick={resetAnimation} className={styles['reset-button']}>
                     Reset Animation
                 </button>
             </div>
 
-            <div className="animation-container">
+            <div className={styles['animation-container']}>
                 <div
                     key={`animated-box-${animationCount}`}
-                    className={`animated-box ${isVisible ? 'visible' : ''} ${animationType}`}
+                    className={`${styles['animated-box']} ${isVisible ? styles.visible : ''} ${styles[animationType]}`}
                     onAnimationStart={handleAnimationStart}
                     onAnimationEnd={handleAnimationEnd}
                     onAnimationIteration={handleAnimationIteration}
@@ -87,16 +87,16 @@ const AnimationEventFeature = () => {
                 </div>
             </div>
 
-            <div className="event-log-container">
+            <div className={styles['event-log-container']}>
                 <h3>Event Log</h3>
-                <ul className="event-log">
+                <ul className={styles['event-log']}>
                     {eventLog.map((log, index) => (
-                        <li key={index} className="log-entry">{log}</li>
+                        <li key={index} className={styles['log-entry']}>{log}</li>
                     ))}
                 </ul>
             </div>
 
-            <div className="event-description">
+            <div className={styles['event-description']}>
                 <h3>Animation Events Supported by React</h3>
                 <ul className="event-list">
                     <li><strong>onAnimationStart</strong>: Triggered when CSS animation starts</li>

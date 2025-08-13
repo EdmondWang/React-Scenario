@@ -1,6 +1,7 @@
 import React, { useEffect, useRef, useState } from 'react';
 
 import { isPrimeNumber2 } from './utils/prime-number';
+import styles from './index.module.css';
 
 const TimerFeature = () => {
     const [startVal, setStartVal] = useState(0);
@@ -43,17 +44,17 @@ const TimerFeature = () => {
     }, [count]);
 
     return (
-        <div className="Counter">
-            <div className="Bar">
+        <div className={styles.Counter}>
+            <div className={styles.Bar}>
                 <input
                     type="number"
                     value={startVal}
                     onChange={startValChanged}
                 />
-                <button id="start" data-testid="start" onClick={start}>
+                <button id="start" data-testid="start" onClick={start} className={styles.startButton}>
                     start
                 </button>
-                <button id="stop" onClick={stop}>
+                <button id="stop" onClick={stop} className={styles.stopButton}>
                     stop
                 </button>
             </div>

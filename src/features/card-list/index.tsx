@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import Card from './card';
 import { Post } from './post.model';
-import './index.css';
+import styles from './index.module.css';
 
 interface PostState {
     post: Post;
@@ -91,13 +91,13 @@ const CardListFeature = () => {
     return (
         <div>
             <button
-                className="add-card-btn"
+                className={styles['add-card-btn']}
                 disabled={isLoading}
                 onClick={clickAddCards}
             >
                 Add Cards
             </button>
-            <div className="card-list">
+            <div className={styles['card-list']}>
                 {postList.length > 0 &&
                     postList.map((postSt) => (
                         <Card

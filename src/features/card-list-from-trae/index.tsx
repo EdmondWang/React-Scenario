@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useCallback } from 'react';
 import { Post, PostState } from './post.model';
-import './index.css';
+import styles from './index.module.css';
 
 // API Constants - Using JSONPlaceholder as reliable free data source
 const API_BASE_URL = 'https://jsonplaceholder.typicode.com';
@@ -117,41 +117,41 @@ const CardListFromTrae = () => {
 
 
   return (
-    <div className="card-list-container">
-      <h2>GitHub Issues Feed</h2>
-      {error && <div className="error-message">{error}</div>}
-      
-      <button 
-        className="add-cards-btn"
-        onClick={loadMorePosts}
-        disabled={isLoading || currentIndex >= idList.length}
-      >
-        {isLoading ? 'Loading...' : 'Add 6 Cards'}
-        {currentIndex >= idList.length && !isLoading && ' (All posts loaded)'}
-      </button>
+        <div className={styles['card-list-container']}>
+            <h2>GitHub Issues Feed</h2>
+            {error && <div className={styles['error-message']}>{error}</div>}
+            
+            <button 
+                className={styles['add-cards-btn']}
+                onClick={loadMorePosts}
+                disabled={isLoading || currentIndex >= idList.length}
+            >
+                {isLoading ? 'Loading...' : 'Add 6 Cards'}
+                {currentIndex >= idList.length && !isLoading && ' (All posts loaded)'}
+            </button>
 
-      <div className="cards-grid">
-        {postList.map(({ post, error }) => (
-          <div key={post.id} className="card">
-            <div className="card-header">
-              <h3>{post.title}</h3>
-              <span className="post-date">{post.createdAt}</span>
+            <div className={styles['cards-grid']}>
+                {postList.map(({ post, error }) => (
+                    <div key={post.id} className={styles.card}>
+                        <div className={styles['card-header']}>
+                            <h3>{post.title}</h3>
+                            <span className={styles['post-date']}>{post.createdAt}</span>
+                        </div>
+                        <div className={styles['card-body']}>
+                            <p>{post.body.substring(0, 150)}...</p>
+                        </div>
+                        {error && <div className={styles['card-error']}>{error}</div>}
+                    </div>
+                ))}
             </div>
-            <div className="card-body">
-              <p>{post.body.substring(0, 150)}...</p>
-            </div>
-            {error && <div className="card-error">{error}</div>}
-          </div>
-        ))}
-      </div>
 
-      {postList.length === 0 && !isLoading && !error && (
-        <div className="empty-state">
-          Click the button above to load posts
+            {postList.length === 0 && !isLoading && !error && (
+                <div className={styles['empty-state']}>
+                    Click the button above to load posts
+                </div>
+            )}
         </div>
-      )}
-    </div>
-  );
+    );
 };
 
 export default CardListFromTrae;

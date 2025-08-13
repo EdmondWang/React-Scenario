@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import TodoItem from './todo-item';
 import { Todo } from './todo.model';
+import styles from './index.module.css';
 
 /**
  * 
@@ -58,24 +59,25 @@ const TodoListFeature = () => {
 
     return (
         <div>
-            <h1>TODO LIST</h1>
-            <div className="actions-bar">
+            <h1 className={styles.title}>TODO LIST</h1>
+            <div className={styles['actions-bar']}>
                 <input
                     type="text"
                     value={input}
                     onChange={(e) => setInput(e.target.value)}
+                    className={styles.input}
                 />
-                <button onClick={() => clickAddTodo({ name: input })}>
+                <button onClick={() => clickAddTodo({ name: input })} className={styles['add-btn']}>
                     Add Todo
                 </button>
-                <button>Delete todo</button>
+                <button className={styles['delete-btn']}>Delete todo</button>
             </div>
 
-            <div className="todo-list">
+            <div className={styles['todo-list']}>
                 {todos?.length > 0 &&
                     todos.map((it) => {
                         return (
-                            <div key={it.id}>
+                            <div key={it.id} className={styles['todo-item-container']}>
                                 <TodoItem
                                     id={it.id}
                                     name={it.name}

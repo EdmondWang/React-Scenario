@@ -1,5 +1,5 @@
 import React from 'react';
-import './index.css';
+import styles from './index.module.css';
 import { Post } from './post.model';
 
 interface CardProps {
@@ -33,17 +33,17 @@ const Card: React.FC<CardProps> = ({ post, error }) => {
     const timestamp = Date.now();
 
     return (
-        <div className="card" key={post.id}>
+        <div className={styles.card} key={post.id}>
             {error && (
-                <div className="error">
+                <div className={styles.error}>
                     #{post.id} {error}
                 </div>
             )}
             {!error && (
                 <>
-                    <h4 className="card-title">
+                    <h4 className={styles['card-title']}>
                         #{post.id} {post.title}
-                        <span className="post-fetch-datetime-text">
+                        <span className={styles['post-fetch-datetime-text']}>
                             {format(timestamp)}
                         </span>
                     </h4>
