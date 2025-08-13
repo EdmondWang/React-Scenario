@@ -7,68 +7,68 @@ const AnimationEventFeature = () => {
     const [eventLog, setEventLog] = useState<string[]>([]);
     const [animationType, setAnimationType] = useState<'bounce' | 'fade' | 'slide'>('bounce');
 
-    // 添加日志并限制长度
+    // Add log and limit length
     const addEventLog = (message: string) => {
         setEventLog(prev => [message, ...prev].slice(0, 10));
     };
 
-    // 重置动画
+    // Reset animation
     const resetAnimation = () => {
         setIsVisible(false);
         setTimeout(() => setIsVisible(true), 100);
         setAnimationCount(prev => prev + 1);
     };
 
-    // 动画事件处理函数
+    // Animation event handlers
     const handleAnimationStart = () => {
-        const message = '✅ onAnimationStart: 动画开始';
+        const message = '✅ onAnimationStart: Animation started';
         console.log(message);
         addEventLog(message);
     };
 
     const handleAnimationEnd = () => {
-        const message = '✅ onAnimationEnd: 动画结束';
+        const message = '✅ onAnimationEnd: Animation ended';
         console.log(message);
         addEventLog(message);
     };
 
     const handleAnimationIteration = () => {
-        const message = '✅ onAnimationIteration: 动画重复播放';
+        const message = '✅ onAnimationIteration: Animation repeated';
         console.log(message);
         addEventLog(message);
     };
 
     const handleTransitionEnd = () => {
-        const message = '✅ onTransitionEnd: 过渡效果结束';
+        const message = '✅ onTransitionEnd: Transition ended';
         console.log(message);
         addEventLog(message);
     };
 
-    // 当动画类型改变时重置动画
+    // Reset animation when animation type changes
     useEffect(() => {
         resetAnimation();
     }, [animationType]);
 
     return (
         <div className="animation-demo-container">
-            <h2>React 动画事件演示</h2>
-            <p>此示例展示了 React 支持的所有动画事件及其触发时机</p>
+            <h2>React Animation Events Demo</h2>
+            <p>This example demonstrates all animation events supported by React and their triggering timings</p>
 
             <div className="controls">
                 <div className="animation-type-selector">
-                    <label>选择动画类型:</label>
+                    <label>Select animation type:</label>
                     <select
                         value={animationType}
                         onChange={(e) => setAnimationType(e.target.value as 'bounce' | 'fade' | 'slide')}
                     >
-                        <option value="bounce">弹跳动画</option>
-                        <option value="fade">淡入淡出</option>
-                        <option value="slide">滑动动画</option>
+                        <option value="bounce">Bounce Animation</option>
+                        <option value="fade">Fade Animation</option>
+                        <option value="slide">Slide Animation</option>
                     </select>
                 </div>
 
                 <button onClick={resetAnimation} className="reset-button">
-                    重置动画
+                    Reset Animation
                 </button>
             </div>
 
@@ -81,14 +81,14 @@ const AnimationEventFeature = () => {
                     onAnimationIteration={handleAnimationIteration}
                     onTransitionEnd={handleTransitionEnd}
                 >
-                    {animationType === 'bounce' && '弹跳效果'}
-                    {animationType === 'fade' && '淡入淡出'}
-                    {animationType === 'slide' && '滑动效果'}
+                    {animationType === 'bounce' && 'Bounce Effect'}
+                    {animationType === 'fade' && 'Fade Effect'}
+                    {animationType === 'slide' && 'Slide Effect'}
                 </div>
             </div>
 
             <div className="event-log-container">
-                <h3>事件日志</h3>
+                <h3>Event Log</h3>
                 <ul className="event-log">
                     {eventLog.map((log, index) => (
                         <li key={index} className="log-entry">{log}</li>
@@ -97,12 +97,12 @@ const AnimationEventFeature = () => {
             </div>
 
             <div className="event-description">
-                <h3>React 支持的动画事件</h3>
+                <h3>Animation Events Supported by React</h3>
                 <ul className="event-list">
-                    <li><strong>onAnimationStart</strong>: 当 CSS 动画开始时触发</li>
-                    <li><strong>onAnimationEnd</strong>: 当 CSS 动画结束时触发</li>
-                    <li><strong>onAnimationIteration</strong>: 当 CSS 动画完成一次迭代时触发</li>
-                    <li><strong>onTransitionEnd</strong>: 当 CSS 过渡效果结束时触发</li>
+                    <li><strong>onAnimationStart</strong>: Triggered when CSS animation starts</li>
+                    <li><strong>onAnimationEnd</strong>: Triggered when CSS animation ends</li>
+                    <li><strong>onAnimationIteration</strong>: Triggered when CSS animation completes one iteration</li>
+                    <li><strong>onTransitionEnd</strong>: Triggered when CSS transition ends</li>
                 </ul>
             </div>
         </div>
