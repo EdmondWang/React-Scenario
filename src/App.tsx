@@ -10,6 +10,7 @@ import LeakDemo from './features/memory-leak/index.tsx';
 import AnimationEventFeature from './features/animation-event/index.tsx';
 import LifeCycleFeature from './features/life-cycle/index.tsx';
 import AsyncStateFeature from './features/async-state/index.tsx';
+import ExposeMethodFeature from './features/expose-method/index.tsx';
 
 function Home() {
     return (
@@ -79,6 +80,13 @@ function Home() {
                             Demonstration of async state in React
                         </span>
                     </li>
+                    <li>
+                        <Link to="/expose-method">Expose Method</Link>
+                        <span className="description">
+                            Demonstration of exposing child component method in
+                            React
+                        </span>
+                    </li>
                 </ul>
             </nav>
         </div>
@@ -114,6 +122,10 @@ const App = () => {
                 <Route
                     path="/async-state"
                     element={<AsyncStateFeature />}
+                ></Route>
+                <Route
+                    path="/expose-method"
+                    element={<ExposeMethodFeature />}
                 ></Route>
             </Routes>
         </div>
