@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { Suspense } from 'react';
 import { Routes, Route, Link } from 'react-router-dom';
 import TimerFeature from './features/timer/index.tsx';
 import TreeQuizFeature from './features/tree-quiz/index.tsx';
@@ -8,9 +8,11 @@ import CardListFeature from './features/card-list/index.tsx';
 import CardListFromTrae from './features/card-list-from-trae/index.tsx';
 import LeakDemo from './features/memory-leak/index.tsx';
 import AnimationEventFeature from './features/animation-event/index.tsx';
-import LifeCycleFeature from './features/life-cycle/index.tsx';
 import AsyncStateFeature from './features/async-state/index.tsx';
 import ExposeMethodFeature from './features/expose-method/index.tsx';
+import DynamicStyleFeature from './features/dynamic-style/index.tsx';
+import NavMenuFeature from './features/nav-menu/index.tsx';
+import NewsFeature from './features/news/index.tsx';
 
 function Home() {
     return (
@@ -87,11 +89,33 @@ function Home() {
                             React
                         </span>
                     </li>
+                    <li>
+                        <Link to="/dynamic-style">Dynamic Style</Link>
+                        <span className="description">
+                            Demonstration of useInsertionEffect
+                        </span>
+                    </li>
+                    <li>
+                        <Link to="/nav-menu">Nav Menu</Link>
+                        <span className="description">
+                            Demonstration of useNavigate
+                        </span>
+                    </li>
+                    <li>
+                        <Link to="/news/1">First News</Link>
+                        <span className="description">
+                            Demonstration of useParams
+                        </span>
+                    </li>
                 </ul>
             </nav>
         </div>
     );
 }
+
+const DynamicLifeCycleFeature = React.lazy(
+    () => import('./features/life-cycle/index.tsx')
+);
 
 const App = () => {
     return (
@@ -117,7 +141,11 @@ const App = () => {
                 ></Route>
                 <Route
                     path="/life-cycle"
-                    element={<LifeCycleFeature />}
+                    element={
+                        <Suspense fallback={<div>Loading...</div>}>
+                            <DynamicLifeCycleFeature />
+                        </Suspense>
+                    }
                 ></Route>
                 <Route
                     path="/async-state"
@@ -127,6 +155,12 @@ const App = () => {
                     path="/expose-method"
                     element={<ExposeMethodFeature />}
                 ></Route>
+                <Route
+                    path="/dynamic-style"
+                    element={<DynamicStyleFeature />}
+                ></Route>
+                <Route path="/nav-menu" element={<NavMenuFeature />}></Route>
+                <Route path="/news/:id" element={<NewsFeature />}></Route>
             </Routes>
         </div>
     );
