@@ -8,6 +8,8 @@ import CardListFeature from './features/card-list/index.tsx';
 import CardListFromTrae from './features/card-list-from-trae/index.tsx';
 import LeakDemo from './features/memory-leak/index.tsx';
 import AnimationEventFeature from './features/animation-event/index.tsx';
+import LifeCycleFeature from './features/life-cycle/index.tsx';
+import AsyncStateFeature from './features/async-state/index.tsx';
 
 function Home() {
     return (
@@ -65,6 +67,18 @@ function Home() {
                             Demonstration of animation event in React
                         </span>
                     </li>
+                    <li>
+                        <Link to="/life-cycle">Life Cycle</Link>
+                        <span className="description">
+                            Demonstration of life cycle in React
+                        </span>
+                    </li>
+                    <li>
+                        <Link to="/async-state">Async State</Link>
+                        <span className="description">
+                            Demonstration of async state in React
+                        </span>
+                    </li>
                 </ul>
             </nav>
         </div>
@@ -92,6 +106,14 @@ const App = () => {
                 <Route
                     path="/animation-event"
                     element={<AnimationEventFeature />}
+                ></Route>
+                <Route
+                    path="/life-cycle"
+                    element={<LifeCycleFeature />}
+                ></Route>
+                <Route
+                    path="/async-state"
+                    element={<AsyncStateFeature />}
                 ></Route>
             </Routes>
         </div>
