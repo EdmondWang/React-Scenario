@@ -1,4 +1,5 @@
 import React, { useState, useEffect, useRef } from 'react';
+import styles from './index.module.css';
 
 /**
  * useState 闭包陷阱示例与解法
@@ -38,10 +39,10 @@ const UseStateTrap: React.FC = () => {
     };
 
     return (
-        <div className="state-trap-example">
+        <div className={styles['state-trap-example']}>
             <h3>useState 闭包陷阱示例</h3>
             <p>当前计数: {count}</p>
-            <div className="buttons">
+            <div className={styles.buttons}>
                 <button onClick={handleClickWrong}>错误做法</button>
                 <button onClick={handleClickCorrect1}>
                     正确做法1 (函数式更新)
@@ -50,7 +51,7 @@ const UseStateTrap: React.FC = () => {
                     正确做法2 (useRef)
                 </button>
             </div>
-            <p className="note">
+            <p className={styles.note}>
                 尝试快速点击按钮多次，观察不同做法的区别。
                 <br />
                 错误做法只会增加一次，而正确做法会正确累加。

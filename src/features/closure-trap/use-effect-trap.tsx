@@ -1,4 +1,5 @@
 import React, { useState, useEffect, useRef } from 'react';
+import styles from './index.module.css';
 
 /**
  * useEffect 闭包陷阱示例与解法
@@ -52,20 +53,20 @@ const UseEffectTrap: React.FC = () => {
   };
 
   return (
-    <div className="effect-trap-example">
+    <div className={styles['effect-trap-example']}>
       <h3>useEffect 闭包陷阱示例</h3>
       <p>当前计数: {count}</p>
       <button onClick={incrementCount}>增加计数</button>
-      <div className="data-list">
+      <div className={styles['data-list']}>
         <h4>数据列表:</h4>
         <ul>
           {data.slice(-5).map((item, index) => (
             <li key={index}>{item}</li>
           ))}
         </ul>
-        <p className="note">只显示最近5条数据</p>
+        <p className={styles.note}>只显示最近5条数据</p>
       </div>
-      <div className="explanation">
+      <div className={styles.explanation}>
         <h4>说明:</h4>
         <ul>
           <li>错误做法: 定时器回调始终使用初始count值(0)</li>
