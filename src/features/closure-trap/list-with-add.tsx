@@ -1,25 +1,25 @@
-import { useState } from 'react';
-
-let index = 0;
+import { useCallback, useEffect, useState, useRef } from 'react';
 
 const ListWithAddButton: React.FC = () => {
     const [list, setList] = useState<any[]>([]);
-    const [localIndex, setLocalIndex] = useState(0);
+    // const [localIndex, setLocalIndex] = useState(0);
+    const localIndexRef = useRef(0);
 
     const clickAdd = () => {
-        setList((l) => {
-            const currIndex = index;
-            index++;
-            console.log('currIndex', currIndex);
-            console.log('localIndex', localIndex);
+        console.log('click Add');
+        console.log('localIndex', localIndexRef.current);
 
-            setLocalIndex((prev) => prev + 1);
+        const currentIndex = localIndexRef.current;
+
+        setList((l) => {
             return l.concat(
-                <button key={localIndex} onClick={clickAdd}>
-                    {localIndex}
+                <button key={currentIndex} onClick={clickAdd}>
+                    {currentIndex}
                 </button>
             );
         });
+
+        localIndexRef.current = localIndexRef.current + 1;
     };
 
     return (
