@@ -13,6 +13,7 @@ import ExposeMethodFeature from './features/expose-method/index.tsx';
 import DynamicStyleFeature from './features/dynamic-style/index.tsx';
 import NavMenuFeature from './features/nav-menu/index.tsx';
 import NewsFeature from './features/news/index.tsx';
+import ClosureTrapFeature from './features/closure-trap/index.tsx';
 
 function Home() {
     return (
@@ -107,6 +108,13 @@ function Home() {
                             Demonstration of useParams
                         </span>
                     </li>
+                    <li>
+                        <Link to="/closure-trap">Closure Trap</Link>
+                        <span className="description">
+                            Demonstration of closure trap within useState and
+                            useEffect
+                        </span>
+                    </li>
                 </ul>
             </nav>
         </div>
@@ -161,6 +169,10 @@ const App = () => {
                 ></Route>
                 <Route path="/nav-menu" element={<NavMenuFeature />}></Route>
                 <Route path="/news/:id" element={<NewsFeature />}></Route>
+                <Route
+                    path="/closure-trap"
+                    element={<ClosureTrapFeature />}
+                ></Route>
             </Routes>
         </div>
     );
