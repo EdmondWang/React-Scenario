@@ -1,0 +1,75 @@
+.page {
+    width: 100%;
+    display: block;
+    text-align: left;
+}
+
+.sample-1-before-father {
+    width: 400px;
+    height: 400px;
+    background-color: black;
+}
+
+.sample-1-before-son {
+    width: 200px;
+    height: 200px;
+    background-color: blue;
+    margin-top: 100px;
+}
+
+.sample-1-after-father {
+    width: 400px;
+    height: 400px;
+    background-color: black;
+    display: flow-root;
+}
+
+.sample-2-before-gege {
+    width: 200px;
+    height: 200px;
+    background-color: black;
+    margin-bottom: 40px;
+}
+
+.sample-2-before-didi {
+    width: 200px;
+    height: 200px;
+    background-color: blue;
+    margin-top: 40px;
+}
+
+.sample-2-after-wrap {
+    display: flow-root;
+}
+
+.sample-2-after-didi {
+    width: 200px;
+    height: 200px;
+    background-color: blue;
+    margin-top: 40px;
+}
+
+.sample-3-before-container {
+    display: block;
+    width: 100%;
+    background: #cccccc;
+    height: auto;
+}
+
+.sample-3-before-left {
+    background: blue;
+    width: 200px;
+    height: 100px;
+    float: left;
+}
+
+.sample-3-before-right {
+    background: black;
+    height: 200px;
+}
+
+.sample-3-after-right {
+    background: black;
+    height: 200px;
+    display: flow-root;
+}

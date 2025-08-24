@@ -3,7 +3,7 @@ import styles from './use-float.module.css';
 const UseFloat = () => {
     return (
         <div className={styles.page}>
-            <div className={styles.header}>Header</div>
+            <div className={styles.header}>Use Float</div>
             <div className={styles.container}>
                 <div className={styles.main}>Main</div>
                 <div className={styles.left}>Left</div>

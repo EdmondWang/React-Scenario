@@ -19,6 +19,7 @@ import CountDownFeature from './features/count-down/index.tsx';
 import MouseTrackerFeature from './features/mouse-tracker/index.tsx';
 import DragAndDropFeature from './features/drag-and-drop/index.tsx';
 import HolyGrailLayoutFeature from './features/holy-grail-layout/index.tsx';
+import BlockFormattingContextFeature from './features/block-formatting-context/index.tsx';
 
 function Home() {
     return (
@@ -146,10 +147,16 @@ function Home() {
                     </li>
                     <li>
                         <Link to="/holy-grail-layout">
-                            Holy Grail Layout Feature
+                            CSS: Holy Grail Layout Feature
                         </Link>
                         <span className="description">
                             Demonstration of css layout
+                        </span>
+                    </li>
+                    <li>
+                        <Link to="/block-formatting-context">CSS: BFC</Link>
+                        <span className="description">
+                            Demonstration of BFC
                         </span>
                     </li>
                 </ul>
@@ -223,6 +230,10 @@ const App = () => {
                 <Route
                     path="/holy-grail-layout"
                     element={<HolyGrailLayoutFeature />}
+                ></Route>
+                <Route
+                    path="/block-formatting-context"
+                    element={<BlockFormattingContextFeature />}
                 ></Route>
             </Routes>
         </div>
