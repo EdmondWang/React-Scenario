@@ -1,6 +1,5 @@
 import React, { useRef, useState, useEffect } from 'react';
 import ProgressBar from '../../components/ProgressBar';
-import styles from './index.module.css';
 
 const SelfCompeteJsBar: React.FC = () => {
     const [progress, setProgress] = useState(0);

@@ -1,5 +1,5 @@
 import React from 'react';
-import './index.css';
+import styles from './index.module.css';
 
 const ProgressBar: React.FC<{
     progress: number;
@@ -7,12 +7,12 @@ const ProgressBar: React.FC<{
     className?: string;
 }> = ({ progress, totalProgress, className }) => {
     return (
-        <div className={`progress-bar ${className ?? ''}`}>
+        <div className={`${styles['progress-bar']} ${className ?? ''}`}>
             <div
-                className="progress-completed"
+                className={styles['progress-completed']}
                 style={{ width: `${progress}%` }}
             ></div>
-            <span className="progress-label">
+            <span className={styles['progress-label']}>
                 {progress} / {totalProgress}%
             </span>
         </div>

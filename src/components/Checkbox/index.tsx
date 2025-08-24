@@ -1,5 +1,5 @@
 import React, { useRef, useEffect } from 'react';
-import './index.css';
+import styles from './index.module.css';
 
 interface CheckboxProps {
     id: string;
@@ -27,7 +27,7 @@ const Checkbox: React.FC<CheckboxProps> = ({
     }, [indeterminate]);
 
     return (
-        <div className="checkbox-wrapper">
+        <div className={styles['checkbox-wrapper']}>
             <input
                 ref={inputRef}
                 id={id}
@@ -35,14 +35,14 @@ const Checkbox: React.FC<CheckboxProps> = ({
                 type="checkbox"
                 checked={checked}
                 onChange={(e) => onChange && onChange(e.target.checked)}
-                className="checkbox-control"
+                className={styles['checkbox-control']}
             />
             <label
                 htmlFor={id}
                 className={`
-                    checkbox-interactive-control
-                    ${checked ? 'checked' : ''}
-                    ${indeterminate ? 'indeterminate' : ''}
+                    ${styles['checkbox-interactive-control']}
+                    ${checked ? styles.checked : ''}
+                    ${indeterminate ? styles.indeterminate : ''}
                 `}
             ></label>
             {label}
