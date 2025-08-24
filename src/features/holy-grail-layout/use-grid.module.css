@@ -1,0 +1,35 @@
+.page {
+    display: grid;
+    grid-template-areas:
+        'header header header'
+        'left main right'
+        'footer footer footer';
+    grid-template-columns: 240px 1fr 200px;
+    grid-template-rows: 60px 1fr 60px;
+    min-height: 100vh;
+}
+
+.header {
+    background: #ccc;
+    grid-area: header;
+}
+
+.main {
+    background: #fff;
+    grid-area: main;
+}
+
+.left {
+    background: #e0f7fa;
+    grid-area: left;
+}
+
+.right {
+    background: #ffebee;
+    grid-area: right;
+}
+
+.footer {
+    background: #ccc;
+    grid-area: footer;
+}
