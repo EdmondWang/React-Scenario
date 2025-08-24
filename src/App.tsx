@@ -17,6 +17,7 @@ import ClosureTrapFeature from './features/closure-trap/index.tsx';
 import HocFeature from './features/hoc/index.tsx';
 import CountDownFeature from './features/count-down/index.tsx';
 import MouseTrackerFeature from './features/mouse-tracker/index.tsx';
+import DragAndDropFeature from './features/drag-and-drop/index.tsx';
 
 function Home() {
     return (
@@ -136,6 +137,12 @@ function Home() {
                             Compare between render props and use hooks
                         </span>
                     </li>
+                    <li>
+                        <Link to="/mouse-tracker">Drag and Drop Feature</Link>
+                        <span className="description">
+                            Demonstration of drag and drop within React
+                        </span>
+                    </li>
                 </ul>
             </nav>
         </div>
@@ -199,6 +206,10 @@ const App = () => {
                 <Route
                     path="/mouse-tracker"
                     element={<MouseTrackerFeature />}
+                ></Route>
+                <Route
+                    path="/drag-and-drop"
+                    element={<DragAndDropFeature />}
                 ></Route>
             </Routes>
         </div>
