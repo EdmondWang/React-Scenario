@@ -16,6 +16,7 @@ import NewsFeature from './features/news/index.tsx';
 import ClosureTrapFeature from './features/closure-trap/index.tsx';
 import HocFeature from './features/hoc/index.tsx';
 import CountDownFeature from './features/count-down/index.tsx';
+import MouseTrackerFeature from './features/mouse-tracker/index.tsx';
 
 function Home() {
     return (
@@ -129,6 +130,12 @@ function Home() {
                             Demonstration of higher order component
                         </span>
                     </li>
+                    <li>
+                        <Link to="/mouse-tracker">Mouse Tracker Feature</Link>
+                        <span className="description">
+                            Compare between render props and use hooks
+                        </span>
+                    </li>
                 </ul>
             </nav>
         </div>
@@ -189,6 +196,10 @@ const App = () => {
                     element={<ClosureTrapFeature />}
                 ></Route>
                 <Route path="/hoc" element={<HocFeature />}></Route>
+                <Route
+                    path="/mouse-tracker"
+                    element={<MouseTrackerFeature />}
+                ></Route>
             </Routes>
         </div>
     );
