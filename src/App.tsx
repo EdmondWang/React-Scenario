@@ -14,6 +14,8 @@ import DynamicStyleFeature from './features/dynamic-style/index.tsx';
 import NavMenuFeature from './features/nav-menu/index.tsx';
 import NewsFeature from './features/news/index.tsx';
 import ClosureTrapFeature from './features/closure-trap/index.tsx';
+import HocFeature from './features/hoc/index.tsx';
+import CountDownFeature from './features/count-down/index.tsx';
 
 function Home() {
     return (
@@ -25,6 +27,12 @@ function Home() {
                         <Link to="/timer">Timer</Link>
                         <span className="description">
                             Closure trap of useEffect
+                        </span>
+                    </li>
+                    <li>
+                        <Link to="/count-down">Countdown Feature</Link>
+                        <span className="description">
+                            Demonstration of useEffect trap
                         </span>
                     </li>
                     <li>
@@ -115,6 +123,12 @@ function Home() {
                             useEffect
                         </span>
                     </li>
+                    <li>
+                        <Link to="/hoc">HOC Feature</Link>
+                        <span className="description">
+                            Demonstration of higher order component
+                        </span>
+                    </li>
                 </ul>
             </nav>
         </div>
@@ -131,6 +145,7 @@ const App = () => {
             <Routes>
                 <Route path="/" element={<Home />} />
                 <Route path="/timer" element={<TimerFeature />} />
+                <Route path="/count-down" element={<CountDownFeature />} />
                 <Route path="/favorite-gundam" element={<TreeQuizFeature />} />
                 <Route path="/todo-list" element={<TodoListFeature />}></Route>
                 <Route
@@ -173,6 +188,7 @@ const App = () => {
                     path="/closure-trap"
                     element={<ClosureTrapFeature />}
                 ></Route>
+                <Route path="/hoc" element={<HocFeature />}></Route>
             </Routes>
         </div>
     );
