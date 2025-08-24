@@ -1,0 +1,16 @@
+.controller {
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: flex-start;
+    align-items: center;
+    column-gap: 20px;
+    padding: 12px;
+    border-radius: 8px;
+    background-color: #f5f5f5;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    width: auto;
+    position: fixed;
+    bottom: 12px;
+    right: 12px;
+    z-index: 1000;
+}

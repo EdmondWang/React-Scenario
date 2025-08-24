@@ -18,6 +18,7 @@ import HocFeature from './features/hoc/index.tsx';
 import CountDownFeature from './features/count-down/index.tsx';
 import MouseTrackerFeature from './features/mouse-tracker/index.tsx';
 import DragAndDropFeature from './features/drag-and-drop/index.tsx';
+import HolyGrailLayoutFeature from './features/holy-grail-layout/index.tsx';
 
 function Home() {
     return (
@@ -143,6 +144,14 @@ function Home() {
                             Demonstration of drag and drop within React
                         </span>
                     </li>
+                    <li>
+                        <Link to="/holy-grail-layout">
+                            Holy Grail Layout Feature
+                        </Link>
+                        <span className="description">
+                            Demonstration of css layout
+                        </span>
+                    </li>
                 </ul>
             </nav>
         </div>
@@ -210,6 +219,10 @@ const App = () => {
                 <Route
                     path="/drag-and-drop"
                     element={<DragAndDropFeature />}
+                ></Route>
+                <Route
+                    path="/holy-grail-layout"
+                    element={<HolyGrailLayoutFeature />}
                 ></Route>
             </Routes>
         </div>
