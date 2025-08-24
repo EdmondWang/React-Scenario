@@ -1,6 +1,11 @@
 .approach {
     display: block;
     position: relative;
+    width: 600px;
+    height: 600px;
+    margin: 0 auto;
+    border: 1px solid #ccc;
+    border-radius: 8px;
 }
 
 .draggableBox {
