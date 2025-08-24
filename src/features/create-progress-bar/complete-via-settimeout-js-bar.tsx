@@ -1,11 +1,11 @@
 import React, { useRef, useState, useEffect } from 'react';
 import ProgressBar from '../../components/ProgressBar';
 
-const SelfCompeteJsBar: React.FC = () => {
+const CompeteViaSetTimeoutJsBar: React.FC = () => {
     const [progress, setProgress] = useState(0);
     const progressTimerRef = useRef<number>(0);
 
-    const totalProgress = 100;
+    const totalProgress = 200;
     const totalTime = 2000; // milliseconds
     const interval = 50; // milliseconds
     const updateTimes = totalTime / interval;
@@ -40,4 +40,4 @@ const SelfCompeteJsBar: React.FC = () => {
     );
 };
 
-export default SelfCompeteJsBar;
+export default CompeteViaSetTimeoutJsBar;

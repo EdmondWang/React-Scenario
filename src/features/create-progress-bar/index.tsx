@@ -1,6 +1,6 @@
 import React, { useState, useCallback } from 'react';
-import SelfCompeteJsBar from './self-complete-js-bar';
-import styles from './index.module.css';
+import CompeteViaSetTimeoutJsBar from './complete-via-settimeout-js-bar';
+import CompeteViaSetIntervalJsBar from './complete-via-setinterval-js-bar';
 
 const CreateProgressBarFeature: React.FC = () => {
     const [id, setId] = useState<number>(0);
@@ -26,7 +26,8 @@ const CreateProgressBarFeature: React.FC = () => {
                 progresses.map((prg) => {
                     return (
                         <div key={prg.id}>
-                            <SelfCompeteJsBar />
+                            <CompeteViaSetTimeoutJsBar />
+                            <CompeteViaSetIntervalJsBar />
                         </div>
                     );
                 })}
