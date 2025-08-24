@@ -63,6 +63,7 @@ const Approach1 = () => {
                 className={styles.draggableBox}
                 style={{
                     transform: `translate(${position.x}px, ${position.y}px)`,
+                    cursor: dragging ? 'grabbing' : 'grab',
                 }}
                 onMouseDown={handleMouseDown}
             >
