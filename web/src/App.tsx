@@ -6,7 +6,7 @@ import TodoListFeature from './features/todo-list/index.tsx';
 import CreateProgressBarFeature from './features/create-progress-bar/index.tsx';
 import CardListFeature from './features/card-list/index.tsx';
 import CardListFromTrae from './features/card-list-from-trae/index.tsx';
-import LeakDemo from './features/memory-leak/index.tsx';
+import MemoryLeadFeature from './features/memory-leak/index.tsx';
 import AnimationEventFeature from './features/animation-event/index.tsx';
 import AsyncStateFeature from './features/async-state/index.tsx';
 import ExposeMethodFeature from './features/expose-method/index.tsx';
@@ -187,7 +187,7 @@ const App = () => {
                     path="/card-list-from-trae"
                     element={<CardListFromTrae />}
                 ></Route>
-                <Route path="/memory-leak" element={<LeakDemo />}></Route>
+                <Route path="/memory-leak" element={<MemoryLeadFeature />}></Route>
                 <Route
                     path="/animation-event"
                     element={<AnimationEventFeature />}
