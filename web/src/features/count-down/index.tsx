@@ -25,9 +25,29 @@ const CountDownFeature = () => {
         };
     }, []);
 
+    const clickStart = () => {
+        setRunning(true);
+        setCount(5);
+    };
+
+    const clickPause = () => {
+        setRunning(true);
+    };
+
+    const clickResume = () => {
+        setRunning(true);
+    };
+
     return (
         <div>
-            {count}, count down is {running ? 'running' : 'done'}
+            <div>
+                {count}, count down is {running ? 'running' : 'done'}
+            </div>
+            <div>
+                <button onClick={clickStart}>Start</button>
+                <button onClick={clickPause}>Pause</button>
+                <button onClick={clickResume}>Resume</button>
+            </div>
         </div>
     );
 };
