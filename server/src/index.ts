@@ -2,6 +2,7 @@ import Koa from 'koa';
 import Router from 'koa-router';
 import cors from 'koa2-cors';
 import healthRouter from './routes/health';
+import longRunningRouter from './routes/long-running';
 
 const app = new Koa();
 const router = new Router();
@@ -15,7 +16,8 @@ app.use(cors({
 }));
 
 // 注册路由
-router.use('/api', healthRouter.routes());
+router.use('/api/health', healthRouter.routes());
+router.use('/api/long-running', longRunningRouter.routes());
 
 // 使用路由
 app.use(router.routes());
