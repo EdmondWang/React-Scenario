@@ -1,53 +1,22 @@
-import { useState, useEffect, useRef } from 'react';
+import { useState, useCallback } from 'react';
+import {Counter} from './counter'
 
 const CountDownFeature = () => {
-    const countRef = useRef(5);
-    const timerRef = useRef<number>(0);
+    const [countDownNum, setCountDownNum] = useState<number>(6);
+    const [completed, setCompleted] = useState<boolean>(false);
 
-    const [running, setRunning] = useState(true);
-    const [count, setCount] = useState(5);
-
-    useEffect(() => {
-        timerRef.current = setInterval(() => {
-            console.log('count', countRef.current);
-            countRef.current = countRef.current - 1;
-            setCount(countRef.current);
-            if (countRef.current <= 0) {
-                clearInterval(timerRef.current);
-                setRunning(false);
-            }
-        }, 1000);
-
-        return () => {
-            if (timerRef.current) {
-                clearInterval(timerRef.current);
-            }
-        };
+    const onCountDownNumChange =  (e: React.ChangeEvent<HTMLInputElement>) =>{
+        setCountDownNum(parseInt(e.target.value, 10))
+    }
+    const onCountDownComplete = useCallback(() => {
+       setCompleted(true)
     }, []);
-
-    const clickStart = () => {
-        setRunning(true);
-        setCount(5);
-    };
-
-    const clickPause = () => {
-        setRunning(true);
-    };
-
-    const clickResume = () => {
-        setRunning(true);
-    };
 
     return (
         <div>
-            <div>
-                {count}, count down is {running ? 'running' : 'done'}
-            </div>
-            <div>
-                <button onClick={clickStart}>Start</button>
-                <button onClick={clickPause}>Pause</button>
-                <button onClick={clickResume}>Resume</button>
-            </div>
+            <input type="number" value={countDownNum} onChange={onCountDownNumChange} />
+            <Counter countDownNum={countDownNum} onCountDownComplete={onCountDownComplete} />
+            {completed && <div>Count down completed</div>}
         </div>
     );
 };
