@@ -1,4 +1,5 @@
 import { useState, useEffect, useRef } from 'react';
+import styles from './counter.module.css';
 
 export interface CounterProps {
     countDownNum: number;
@@ -21,15 +22,15 @@ export const Counter: React.FC<CounterProps> = ({
         }
     };
 
-    const completeCount = () => {
-        clearTimer();
-        if (typeof onCountDownComplete === 'function') {
-            onCountDownComplete();
-        }
-        setRunning(false);
-    };
-
     useEffect(() => {
+        const completeCount = () => {
+            clearTimer();
+            if (typeof onCountDownComplete === 'function') {
+                onCountDownComplete();
+            }
+            setRunning(false);
+        };
+        
         if (!running || timerRef.current) {
             clearTimer();
             return;
@@ -76,16 +77,32 @@ export const Counter: React.FC<CounterProps> = ({
     };
 
     return (
-        <div>
-            <div>
-                {count}, count down is {running ? 'running' : 'not running'}
+        <>
+            <div className={styles.counterDisplay}>{count}</div>
+            <div className={styles.statusText}>
+                Count down is {running ? 'running' : 'not running'}
             </div>
-            <div>
-                <button onClick={clickStart}>Start</button>
-                <button onClick={clickPause}>Pause</button>
-                <button onClick={clickResume}>Resume</button>
+            <div className={styles.controls}>
+                <button 
+                    className={`${styles.button} ${styles.startButton}`} 
+                    onClick={clickStart}
+                >
+                    Start
+                </button>
+                <button 
+                    className={`${styles.button} ${styles.pauseButton}`} 
+                    onClick={clickPause}
+                >
+                    Pause
+                </button>
+                <button 
+                    className={`${styles.button} ${styles.resumeButton}`} 
+                    onClick={clickResume}
+                >
+                    Resume
+                </button>
             </div>
-        </div>
+        </>
     );
 };
 
